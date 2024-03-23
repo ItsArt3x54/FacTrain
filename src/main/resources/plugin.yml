@@ -1,0 +1,4 @@
+name: FacTrain
+version: '${version}'
+main: be.artex.factrain.Main
+api-version: '1.19'
