@@ -15,17 +15,17 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class BowCommand implements CommandExecutor {
     Inventory bows;
+    public static ItemStack border;
 
     public BowCommand() {
         bows = Bukkit.createInventory(null, 27, "bows");
-    }
-
-    private Inventory prepareBowInv() {
-        ItemStack border = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7);
+        border = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7);
         ItemMeta itemMeta = border.getItemMeta();
         itemMeta.setDisplayName(" ");
         border.setItemMeta(itemMeta);
+    }
 
+    private Inventory prepareBowInv() {
         bows.setItem(0, border);
         bows.setItem(1, border);
         bows.setItem(2, border);

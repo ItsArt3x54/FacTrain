@@ -5,6 +5,7 @@ import be.raft.crafty.item.ItemBuilder;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -19,8 +20,8 @@ public class AssasinSword extends SwordItem {
         itemId = UUID.randomUUID();
 
         stack = ItemBuilder.create(Material.DIAMOND_SWORD)
-                .displayName(ChatColor.RED + "" + ChatColor.BOLD + "Lame de l'assasin")
-                .setLore(ChatColor.RESET + "" + ChatColor.DARK_GRAY + "uIoPMlkhJNBfGhBNaEhJ", ChatColor.RESET + "" + ChatColor.RED + "Fire Aspect 2" + ChatColor.DARK_GRAY + ", " + ChatColor.LIGHT_PURPLE + "Sharpness 6")
+                .displayName(ChatColor.RED + "" + ChatColor.BOLD + "Lame de l'Assasin")
+                .setLore(ChatColor.RESET + "" + ChatColor.DARK_GRAY + "uIoPMlkhJNBfGhBNaEhJ", ChatColor.RESET + "" + ChatColor.GOLD + "Fire Aspect 2" + ChatColor.DARK_GRAY + ", " + ChatColor.LIGHT_PURPLE + "Sharpness 6")
                 .addEnchant(Enchantment.FIRE_ASPECT, 2)
                 .addEnchant(Enchantment.DAMAGE_ALL, 6, false)
                 .addEnchant(Enchantment.DURABILITY, 5, false)
@@ -39,7 +40,7 @@ public class AssasinSword extends SwordItem {
     }
 
     @Override
-    public void onClick() {
+    public void onClick(Player player) {
 
     }
 
