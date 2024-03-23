@@ -2,3 +2,16 @@ name: FacTrain
 version: '${version}'
 main: be.artex.factrain.Main
 api-version: '1.19'
+commands:
+  bow:
+    usage: "§4usage: /bow"
+    description: "shows all custom bows"
+    aliases:
+      - bows
+      - enderbow
+  sword:
+    usage: "§4usage: /sword"
+    description: "shows all custom swords"
+    aliases:
+      - swords
+      - assasinsword
