@@ -6,6 +6,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -48,7 +49,7 @@ public class CupidonBow extends BowItem {
     }
 
     @Override
-    public void onArrowLand(ProjectileHitEvent e) {
+    public void onArrowShot(EntityShootBowEvent e) {
 
     }
 }

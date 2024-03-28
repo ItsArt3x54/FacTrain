@@ -18,6 +18,7 @@ import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.Potion;
 import org.bukkit.potion.PotionType;
 
+import javax.swing.*;
 import java.util.Random;
 
 public class PlayerInteract implements Listener {
