@@ -15,7 +15,7 @@ public class ProjectileHit implements Listener {
         }
 
         for (BowItem item : Items.registeredBowItems) {
-            if (e.getBow().equals(item.getStack())) {
+            if (e.getBow().getItemMeta().getDisplayName().equals(item.getStack().getItemMeta().getDisplayName())) {
                 item.onArrowShot(e);
                 break;
             }

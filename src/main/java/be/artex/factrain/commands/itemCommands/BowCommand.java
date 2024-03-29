@@ -1,6 +1,5 @@
 package be.artex.factrain.commands.itemCommands;
 
-import be.artex.factrain.api.items.Item;
 import be.artex.factrain.api.items.Items;
 import be.artex.factrain.api.items.bow.BowItem;
 import org.bukkit.Bukkit;
@@ -14,47 +13,47 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class BowCommand implements CommandExecutor {
-    Inventory bows;
+    public static Inventory inventory;
     public static ItemStack border;
 
     public BowCommand() {
-        bows = Bukkit.createInventory(null, 27, "bows");
+        inventory = Bukkit.createInventory(null, 27, "bows");
         border = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7);
         ItemMeta itemMeta = border.getItemMeta();
         itemMeta.setDisplayName(" ");
         border.setItemMeta(itemMeta);
     }
 
-    private Inventory prepareBowInv() {
-        bows.setItem(0, border);
-        bows.setItem(1, border);
-        bows.setItem(2, border);
-        bows.setItem(3, border);
-        bows.setItem(4, border);
-        bows.setItem(5, border);
-        bows.setItem(6, border);
-        bows.setItem(7, border);
-        bows.setItem(8, border);
-        bows.setItem(9, border);
-        bows.setItem(17, border);
-        bows.setItem(18, border);
-        bows.setItem(19, border);
-        bows.setItem(20, border);
-        bows.setItem(21, border);
-        bows.setItem(22, border);
-        bows.setItem(23, border);
-        bows.setItem(24, border);
-        bows.setItem(25, border);
-        bows.setItem(26, border);
+    public static Inventory prepareBowInv() {
+        inventory.setItem(0, border);
+        inventory.setItem(1, border);
+        inventory.setItem(2, border);
+        inventory.setItem(3, border);
+        inventory.setItem(4, border);
+        inventory.setItem(5, border);
+        inventory.setItem(6, border);
+        inventory.setItem(7, border);
+        inventory.setItem(8, border);
+        inventory.setItem(9, border);
+        inventory.setItem(17, border);
+        inventory.setItem(18, border);
+        inventory.setItem(19, border);
+        inventory.setItem(20, border);
+        inventory.setItem(21, border);
+        inventory.setItem(22, border);
+        inventory.setItem(23, border);
+        inventory.setItem(24, border);
+        inventory.setItem(25, border);
+        inventory.setItem(26, border);
 
         int v = 9;
 
         for (BowItem item : Items.registeredBowItems) {
             v++;
-            bows.setItem(v, item.getStack());
+            inventory.setItem(v, item.getStack());
         }
 
-        return bows;
+        return inventory;
     }
 
     @Override
@@ -64,7 +63,7 @@ public class BowCommand implements CommandExecutor {
 
         prepareBowInv();
 
-        ((Player) sender).openInventory(bows);
+        ((Player) sender).openInventory(inventory);
 
         return true;
     }

@@ -1,11 +1,15 @@
 package be.artex.factrain.listeners.gameLoop;
 
+import be.artex.factrain.api.Runs;
+import be.artex.factrain.listeners.items.PlayerInteract;
 import org.bukkit.GameMode;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -23,5 +27,13 @@ public class PlayerRespawn implements Listener {
 
     @EventHandler
     public void onPlayerDie(PlayerDeathEvent e) {
+        for (ItemStack itemStack : e.getDrops()) {
+            itemStack.setType(Material.AIR);
+        }
+
+        e.getEntity().getKiller().getInventory().clear();
+        PlayerInteract.prepareGear(Runs.getPlayerRun(e.getEntity().getKiller()));
+
+        e.getEntity().getKiller().setHealth(e.getEntity().getKiller().getMaxHealth());
     }
 }

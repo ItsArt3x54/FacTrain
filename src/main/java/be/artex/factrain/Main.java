@@ -19,12 +19,11 @@ import org.bukkit.block.Block;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
+    public static JavaPlugin PLUGIN;
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
-        this.getCommand("bow").setExecutor(new BowCommand());
-        this.getCommand("sword").setExecutor(new SwordCommand());
+        PLUGIN = this;
 
         this.getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
         this.getServer().getPluginManager().registerEvents(new PlayerRespawn(), this);
@@ -62,10 +61,5 @@ public final class Main extends JavaPlugin {
         }
 
         world.setSpawnLocation(0, 122, 0);
-    }
-
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
     }
 }
